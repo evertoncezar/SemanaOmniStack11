@@ -26,11 +26,10 @@ function Incidents(){
         
         if (loading)
             {
-
                 return;
             }
         
-        if (totalItems > 0 && incidents.length == total) //*Scroll Infinito
+        if (totalItems > 0 && incidents.length == totalItems) //*Scroll Infinito
         {
             return;
         }
@@ -41,7 +40,7 @@ function Incidents(){
         //Paginação 1
         //const response = await api.get(`'incidents?page=${page}`);
         //Paginação 2
-        const response = await api.get('incidents'), { params: { page } }; //*Scroll Infinito
+        const response = await api.get('incidents', { params: { page } }); //*Scroll Infinito
 
         //todos os valores dos incidents + os que retorna o response.data
         setIncidents([... incidents, ...response.data]); //anexar 2 vetores no react  //*Scroll Infinito
